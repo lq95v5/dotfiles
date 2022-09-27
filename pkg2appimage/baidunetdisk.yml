@@ -1,0 +1,15 @@
+# Modified from Vivaldi.yml
+# Author qiang
+app: baidunetdisk
+
+ingredients:
+  script:
+    - version=4.14.5
+    - wget https://issuepcdn.baidupcs.com/issue/netdisk/LinuxGuanjia/${version}/baidunetdisk_${version}_amd64.deb -o baidunetdisk.deb
+
+
+script:
+  - # Workaround for:
+  - # https://bugzilla.mozilla.org/show_bug.cgi?id=296568
+  - cp opt/baidunetdisk/baidunetdisk.svg .
+  - mv -f opt/baidunetdisk/* usr/bin/ && rm -r opt/
